@@ -63,7 +63,7 @@
     crossorigin="anonymous"></script>
 
   <?php
-    if (isset($_GET)) {
+    if (isset($_GET["status"])) {
       if ($_GET["status"] == "succes") {
         echo "<script src='./js/registerform/success.js'></script>";
       }
