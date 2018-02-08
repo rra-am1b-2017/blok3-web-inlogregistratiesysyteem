@@ -70,6 +70,8 @@
         echo "<script src='./js/registerform/emailexists.js'></script>";        
       } else if ($_GET["status"] == "conditions_not_checked") {
         echo "<script src='./js/registerform/conditions_not_checked.js'></script>";                
+      } else if ($_GET["status"] == "empty_email") {
+        echo "<script src='./js/registerform/empty_email.js'></script>";                
       }
     }
 
