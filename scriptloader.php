@@ -13,8 +13,8 @@
     $status = sanitize($_GET["status"]);
 
     // Kijk of $_GET["status"] in $whitelist bekend is.
-    echo in_array($status, $whitelist); exit();
-    
-    echo "<script src='./js/registerform/{$_GET["status"]}.js'></script>";
+    if (in_array($status, $whitelist)) {
+      echo "<script src='./js/registerform/{$_GET["status"]}.js'></script>";      
+    }    
   }
 ?>
