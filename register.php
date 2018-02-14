@@ -42,7 +42,7 @@
         mysqli_close($conn);
 
         // Je wordt nu direct teruggestuurd naar index.php
-        header("Location: ./index.php?status=succes");
+        header("Location: ./index.php?status=success");
       }
     }
   } else {

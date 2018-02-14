@@ -62,20 +62,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 
-  <?php
-    if (isset($_GET["status"])) {
-      if ($_GET["status"] == "succes") {
-        echo "<script src='./js/registerform/success.js'></script>";
-      } else if ($_GET["status"] == "emailexists") {
-        echo "<script src='./js/registerform/emailexists.js'></script>";        
-      } else if ($_GET["status"] == "conditions_not_checked") {
-        echo "<script src='./js/registerform/conditions_not_checked.js'></script>";                
-      } else if ($_GET["status"] == "empty_email") {
-        echo "<script src='./js/registerform/empty_email.js'></script>";                
-      }
-    }
-
-  ?>
-</body>
-
+  <?php include("./scriptloader.php"); ?>;    
+ </body>
 </html>
