@@ -41,6 +41,36 @@
         // Hiermee wordt de verbinding verbroken.
         mysqli_close($conn);
 
+        // Onderwerp email
+        $subject = "Registratie dyslexie.nl";
+
+        $message = '<!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                      <meta charset="UTF-8">
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                      <title>Document</title>
+                      <style>
+                        body {
+                          background-color : "yellow";
+                        }
+                      </style>
+                    </head>
+                    <body>
+                      <p>Bedankt voor het registreren, klik <a href="http://www.inlogregistratiesysteem.am1b.nl">hier</a> om uw account te activeren</p>
+                      <p>Met vriendelijk groet,</p>
+                      <p>Superadmin</p>
+                    </body>
+                    </html>';
+
+        $headers =  "Content-Type: text/html; charset=UTF-8 \r\n";
+        $headers .= "From: superadmin@dyslectie.nl \r\n";
+        $headers .= "Cc: superadmin@dyslectie.nl, adruijter@gmail.com \r\n";
+        $headers .= "Bcc: subscriber@dyslectie.nl, rra@mboutrecht.nl";
+
+        mail($email, $subject, $message, $headers);
+
         // Je wordt nu direct teruggestuurd naar index.php
         header("Location: ./index.php?status=success");
       }
