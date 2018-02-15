@@ -14,45 +14,15 @@
 </head>
 
 <body>
-  <main class="container">
-    <h1>Inlogregistratiesysteem</h1>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-      registreer
-    </button>
+  <?php
+    if (isset($_GET["action"])) {
+      include("./{$_GET["action"]}.php");      
+    } else {
+      include("./home.php");
+    }
+  ?>
 
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Registreren</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <form action="./register.php" method="post">
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="exampleInputEmail1">E-mail adres</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Voer uw e-mailadres in" name="email">
-                <small id="emailHelp" class="form-text text-muted">Uw e-mailadres wordt niet verder gedeeld.</small>
-              </div>
-              <div class="form-check" id="lbl_checkbox">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="conditions">
-                <label class="form-check-label" for="exampleCheck1">U gaat akkoord met de algemene voorwaarden</label>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Verstuur</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </main>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

@@ -53,11 +53,13 @@
                       <title>Document</title>
                       <style>
                         body {
-                          background-color : "yellow";
+                          background-color : "rgb(220,220,220)";
+                          font-size : "14px";
                         }
                       </style>
                     </head>
                     <body>
+                      <h3>Beste bezoeker van de site</h3>
                       <p>Bedankt voor het registreren, klik <a href="http://www.inlogregistratiesysteem.am1b.nl">hier</a> om uw account te activeren</p>
                       <p>Met vriendelijk groet,</p>
                       <p>Superadmin</p>
