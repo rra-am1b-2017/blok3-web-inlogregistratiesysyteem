@@ -10,7 +10,7 @@
     $conditions = sanitize($_POST["conditions"]);
 
     if (empty($_POST["email"])) {
-      header("Location: ./index.php?status=empty_email");
+      header("Location: ./index.php?action=registerform&status=empty_email");
     } else {
       // Maak een selectie query om te kijken in de database of het emailadres al bestaat
       $sql = "SELECT * FROM `login` WHERE `email` = '{$email}'";
@@ -24,7 +24,7 @@
       // Als mysqli_num_rows aantal gevonden rijen 1 teruggeeft dan...
       if (mysqli_num_rows($result)) {
         // Echo dat het emailadres al bestaat anders...
-        header("Location: ./index.php?status=emailexists");
+        header("Location: ./index.php?action=registerform&status=emailexists");
       } else {
         $sql = "INSERT INTO `login` (`id`,
                                     `email`,
@@ -60,7 +60,7 @@
                     </head>
                     <body>
                       <h3>Beste bezoeker van de site</h3>
-                      <p>Bedankt voor het registreren, klik <a href="http://www.inlogregistratiesysteem.am1b.nl">hier</a> om uw account te activeren</p>
+                      <p>Bedankt voor het registreren, klik <a href="http://www.inlogregistratiesysteem.am1b.nl/index.php?action=choosepassword&status=choosepassword">hier</a> om uw account te activeren</p>
                       <p>Met vriendelijk groet,</p>
                       <p>Superadmin</p>
                     </body>
@@ -74,10 +74,10 @@
         mail($email, $subject, $message, $headers);
 
         // Je wordt nu direct teruggestuurd naar index.php
-        header("Location: ./index.php?status=success");
+        header("Location: ./index.php?action=registerform&status=success");
       }
     }
   } else {
-    header("Location: ./index.php?status=conditions_not_checked");
+    header("Location: ./index.php?action=registerform&status=conditions_not_checked");
   }  
 ?>

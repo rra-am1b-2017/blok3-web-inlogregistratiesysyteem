@@ -5,7 +5,8 @@
     $whitelist = array("success", 
                        "empty_email",
                        "emailexists",
-                       "conditions_not_checked");
+                       "conditions_not_checked",
+                       "choosepassword");
     // include de schoonmaakfunctie
     include("./functions/functions.php");
 
