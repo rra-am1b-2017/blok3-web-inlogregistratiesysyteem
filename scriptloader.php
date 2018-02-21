@@ -6,7 +6,8 @@
                        "empty_email",
                        "emailexists",
                        "conditions_not_checked",
-                       "choosepassword");
+                       "choosepassword",
+                       "emptypassword");
     // include de schoonmaakfunctie
     include("./functions/functions.php");
 

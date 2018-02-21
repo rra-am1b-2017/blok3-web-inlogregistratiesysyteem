@@ -18,7 +18,7 @@
               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Wachtwoord" name="password">
               <small id="passwordHelp" class="form-text text-muted">Kies een geschikt wachtwoord.</small>            
             </div>
-            <div class="form-group">
+            <div class="form-group" id="empty_password">
               <label for="exampleInputPassword2">Bevestig wachtwoord</label>
               <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Bevestig wachtwoord" name="confirmPassword">
               <small id="passwordHelp" class="form-text text-muted">Herhaal uw gekozen wachtwoord.</small>            
