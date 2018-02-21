@@ -29,11 +29,15 @@
         $sql = "INSERT INTO `login` (`id`,
                                     `email`,
                                     `conditions`,
-                                    `userrole`) 
+                                    `userrole`,
+                                    `password`,
+                                    `activated`) 
                                 VALUES (NULL,
                                     '{$email}',
                                     '{$conditions}',
-                                    'subscriber')";
+                                    'subscriber',
+                                    '',
+                                    'no')";
 
         // Vuur de query af op de database
         mysqli_query($conn, $sql);

@@ -5,10 +5,16 @@
   $password = sanitize($_POST["password"]);
   $confirmPassword = sanitize($_POST["confirmPassword"]);
 
-  echo "Check of het veld leeg is: " . empty($password);
-
   if ( !empty($password) && !empty($confirmPassword)) {
-    // Verder gaan met het registratieproces
+    
+    if ( !strcmp($password, $confirmPassword)) {
+      // Verder gaan met het registratieproces
+      $password = password_hash($password, PASSWORD_BCRYPT);
+
+    } else {
+      header("Location: ./index.php?action=choosepassword&status=notequalpassword");
+    }
+
   } else {
     header("Location: ./index.php?action=choosepassword&status=emptypassword");
   }
