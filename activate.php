@@ -21,7 +21,7 @@
 
       mysqli_query($conn, $sql); 
       
-      
+      header("Location: ./index.php?action=choosepassword&status=passwordsuccess");
     } else {
       header("Location: ./index.php?action=choosepassword&status=notequalpassword");
     }

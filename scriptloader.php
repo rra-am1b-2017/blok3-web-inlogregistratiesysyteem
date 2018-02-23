@@ -9,7 +9,8 @@
                        "choosepassword",
                        "emptypassword",
                        "notequalpassword",
-                       "registerform");
+                       "registerform",
+                       "passwordsuccess");
     // include de schoonmaakfunctie
     include("./functions/functions.php");
 
