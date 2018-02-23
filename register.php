@@ -42,6 +42,8 @@
         // Vuur de query af op de database
         mysqli_query($conn, $sql);
 
+        $id = mysqli_insert_id($conn);
+
         // Hiermee wordt de verbinding verbroken.
         mysqli_close($conn);
 
@@ -64,7 +66,7 @@
                     </head>
                     <body>
                       <h3>Beste bezoeker van de site</h3>
-                      <p>Bedankt voor het registreren, klik <a href="http://www.inlogregistratiesysteem.am1b.nl/index.php?action=choosepassword&status=choosepassword">hier</a> om uw account te activeren</p>
+                      <p>Bedankt voor het registreren, klik <a href="http://www.inlogregistratiesysteem.am1b.nl/index.php?action=choosepassword&status=choosepassword&id=' . $id . '">hier</a> om uw account te activeren</p>
                       <p>Met vriendelijk groet,</p>
                       <p>Superadmin</p>
                     </body>

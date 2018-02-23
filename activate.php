@@ -11,6 +11,12 @@
       // Verder gaan met het registratieproces
       $password = password_hash($password, PASSWORD_BCRYPT);
 
+      echo "Blowfish: " . $password; exit();
+
+      $sql = "UPDATE `login` SET `password`  = '{$password}',
+                                 `activated` = 'yes'
+                           WHERE `id` = 43;";
+
     } else {
       header("Location: ./index.php?action=choosepassword&status=notequalpassword");
     }
