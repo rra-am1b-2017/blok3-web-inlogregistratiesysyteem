@@ -8,7 +8,8 @@
                        "conditions_not_checked",
                        "choosepassword",
                        "emptypassword",
-                       "notequalpassword");
+                       "notequalpassword",
+                       "registerform");
     // include de schoonmaakfunctie
     include("./functions/functions.php");
 
