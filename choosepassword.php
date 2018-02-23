@@ -23,6 +23,7 @@
               <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Bevestig wachtwoord" name="confirmPassword">
               <small id="passwordHelp" class="form-text text-muted">Herhaal uw gekozen wachtwoord.</small>            
             </div>
+            <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Verzenden</button>        

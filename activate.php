@@ -4,19 +4,24 @@
 
   $password = sanitize($_POST["password"]);
   $confirmPassword = sanitize($_POST["confirmPassword"]);
+  $id = sanitize($_POST["id"]);
 
   if ( !empty($password) && !empty($confirmPassword)) {
     
     if ( !strcmp($password, $confirmPassword)) {
+      // Maak een verbinding met de mysql-database
+      include("./connect_db.php");
+
       // Verder gaan met het registratieproces
       $password = password_hash($password, PASSWORD_BCRYPT);
 
-      echo "Blowfish: " . $password; exit();
-
       $sql = "UPDATE `login` SET `password`  = '{$password}',
                                  `activated` = 'yes'
-                           WHERE `id` = 43;";
+                           WHERE `id` = " . $id;
 
+      mysqli_query($conn, $sql); 
+      
+      
     } else {
       header("Location: ./index.php?action=choosepassword&status=notequalpassword");
     }
