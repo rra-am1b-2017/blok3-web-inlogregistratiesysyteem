@@ -18,7 +18,7 @@
       $sql = "UPDATE `login` SET `password`  = '{$password}',
                                  `activated` = 'yes'
                            WHERE `id` = " . $id;
-
+     
       mysqli_query($conn, $sql); 
       
       header("Location: ./index.php?action=choosepassword&status=passwordsuccess");
