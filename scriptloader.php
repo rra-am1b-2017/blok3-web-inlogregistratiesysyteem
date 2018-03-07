@@ -11,7 +11,8 @@
                                                 "notequalpassword",
                                                 "registerform",
                                                 "passwordsuccess"),
-                        "loginform"    => array("loginform"));
+                        "loginform"    => array("loginform",
+                                                "emptyfields"));
     // include de schoonmaakfunctie
     include("./functions/functions.php");
 
