@@ -23,8 +23,10 @@
     // mysqli_num_rows() telt het aantal gevonden records in de database. Er zijn twee mogelijkheden
     // Er wordt precies 1 record gevonden (true) of geen record (false)
     if (mysqli_num_rows($result)) {
+
       // mysqli_fetch_array() maakt van het onleesbare result een array genaamd $record.
       $record = mysqli_fetch_array($result);
+      
       // password_verify het gehashte password vergelijken met het niet gehashte ingevoerde password
       echo password_verify($password, $record["password"]); exit();
     }
