@@ -1,8 +1,5 @@
 <?php
-  var_dump($_POST);
-
   if (!empty($_POST["email"]) && !empty($_POST["password"])) {
-    // Verder met de inlogprocedure
 
     // Maak contact met de mysql-server
     include("./connect_db.php");
@@ -26,9 +23,31 @@
 
       // mysqli_fetch_array() maakt van het onleesbare result een array genaamd $record.
       $record = mysqli_fetch_array($result);
-      
+
       // password_verify het gehashte password vergelijken met het niet gehashte ingevoerde password
-      echo password_verify($password, $record["password"]); exit();
+      if (password_verify($password, $record["password"])) {
+        
+        // Verdergaan met inlogprocedure 
+        switch ($record["userrole"]) {
+          case "subscriber":
+            header("Location: ./index.php?action=subscriber_home");
+            break;
+          case "superadmin":
+            header("Location: ./index.php?action=superadmin_home");
+            break;
+          case "administrator":
+            header("Location: ./index.php?action=administrator_home");            
+            break;
+          default:
+            header("Location: ./index.php?action=home");            
+            break;
+        }
+      } else {
+          header("Location: ./index.php?action=loginform&status=accessdenied");          
+      }
+
+    } else {
+        header("Location: ./index.php?action=loginform&status=accessdenied");
     }
   } else {
     header("Location: ./index.php?action=loginform&status=emptyfields");

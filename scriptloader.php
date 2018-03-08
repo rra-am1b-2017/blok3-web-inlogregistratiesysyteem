@@ -12,7 +12,8 @@
                                                 "registerform",
                                                 "passwordsuccess"),
                         "loginform"    => array("loginform",
-                                                "emptyfields"));
+                                                "emptyfields",
+                                                "accessdenied"));
     // include de schoonmaakfunctie
     include("./functions/functions.php");
 
