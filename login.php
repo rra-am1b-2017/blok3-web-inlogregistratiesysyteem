@@ -1,4 +1,5 @@
 <?php
+  session_start();
   if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
     // Maak contact met de mysql-server
@@ -27,19 +28,27 @@
       // password_verify het gehashte password vergelijken met het niet gehashte ingevoerde password
       if (password_verify($password, $record["password"])) {
         
+        $_SESSION["id"] = $record["id"];
+        $_SESSION["email"] = $record["email"];
+        $_SESSION["userrole"] = $record["userrole"];
+
+        echo $_SESSION["id"]; 
+        echo session_id(); 
+        //exit();
+
         // Verdergaan met inlogprocedure 
         switch ($record["userrole"]) {
           case "subscriber":
-            header("Location: ./index.php?action=subscriber_home");
+            header("Location: http://www.inlogregistratiesysteem.am1b.nl/index.php?action=subscriber_home");
             break;
           case "superadmin":
-            header("Location: ./index.php?action=superadmin_home");
+            header("Location: http://www.inlogregistratiesysteem.am1b.nl/index.php?action=superadmin_home");
             break;
           case "administrator":
-            header("Location: ./index.php?action=administrator_home");            
+            header("Location: http://www.inlogregistratiesysteem.am1b.nl/index.php?action=administrator_home");            
             break;
           default:
-            header("Location: ./index.php?action=home");            
+            header("Location: http://www.inlogregistratiesysteem.am1b.nl/index.php?action=home");            
             break;
         }
       } else {
