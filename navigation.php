@@ -20,46 +20,6 @@
         break;
     } 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .
-
-
-    
     echo '<a href="./index.php?action=games">Games</a> ';
     echo '<a href="./index.php?action=logout">Uitloggen</a> ';
   } else {
