@@ -1,23 +1,24 @@
 <?php
+  // Check of er een id is
   if (!isset($_GET["id"])) {    
     header("Location: ./index.php?action=home");
     exit();
   } 
   // Maak de $_GET["id"] variabele schoon en veilig
-  $id = sanitize($_GET["id"]);
+  $_GET["id"];
 
   // Maak contact met de mysql-server
   include("./connect_db.php");
 
   // Maak een query die het record selecteerd
-  $sql = "SELECT * FROM `login` WHERE `id` = " . $id;
+  $sql = "SELECT * FROM `login` WHERE `id` = " . $_GET["id"];
 
   $result = mysqli_query($conn, $sql);
 
   $record = mysqli_fetch_array($result);
 
   if ($record["activated"] == 'yes') {
-    header("Location: ./index.php?action=choosepassword&status=already_activated");
+    header("Location: ./index.php?action=home");
   }
 ?>
 
