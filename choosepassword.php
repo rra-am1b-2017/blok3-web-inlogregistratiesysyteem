@@ -1,5 +1,27 @@
-<main class="container">
+<?php
+  if (!isset($_GET["id"])) {    
+    header("Location: ./index.php?action=home");
+    exit();
+  } 
+  // Maak de $_GET["id"] variabele schoon en veilig
+  $id = sanitize($_GET["id"]);
 
+  // Maak contact met de mysql-server
+  include("./connect_db.php");
+
+  // Maak een query die het record selecteerd
+  $sql = "SELECT * FROM `login` WHERE `id` = " . $id;
+
+  $result = mysqli_query($conn, $sql);
+
+  $record = mysqli_fetch_array($result);
+
+  if ($record["activated"] == 'yes') {
+    header("Location: ./index.php?action=choosepassword&status=already_activated");
+  }
+?>
+
+<main class="container">
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
