@@ -19,10 +19,11 @@
         header("Location: ./index.php?action=logout");        
         break;
     } 
-
+    // Hier komen algemene links voor gebruiker die ingelogd zijn
     echo '<a href="./index.php?action=games">Games</a> ';
     echo '<a href="./index.php?action=logout">Uitloggen</a> ';
   } else {
+    // Hier komen alle links voor gebruikers die niet ingelogd zijn
     echo '<a href="./index.php?action=home">Home</a> ';
     echo '<a href="./index.php?action=registerform&amp;status=registerform">Registreer</a> ';
     echo '<a href="./index.php?action=loginform&amp;status=loginform">Inloggen</a>';
