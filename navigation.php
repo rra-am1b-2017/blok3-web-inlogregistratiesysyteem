@@ -5,6 +5,7 @@
     switch ($_SESSION["userrole"]) {
       case 'superadmin':
         echo '<a href="./index.php?action=superadmin_home">Home</a> ';
+        echo '<a href="./index.php?action=subscriber_home">subscriber Home</a> ';        
         // Zet hier alle superadmin links 
         break;
       case 'administrator':
