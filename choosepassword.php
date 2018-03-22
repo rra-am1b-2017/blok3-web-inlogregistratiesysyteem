@@ -4,9 +4,7 @@
     header("Location: ./index.php?action=home");
     exit();
   } 
-  // Maak de $_GET["id"] variabele schoon en veilig
-  $_GET["id"];
-
+  
   // Maak contact met de mysql-server
   include("./connect_db.php");
 
