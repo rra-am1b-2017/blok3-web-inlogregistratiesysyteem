@@ -17,15 +17,21 @@
   $tableContent = "";
   while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $tableContent .= "<tr>
-                        <th scope='row'>" . $record["id"]. "</th>
-                        <td>" . $record["email"] . "</td>
-                        <td>
-                          <select class='form-control form-control-sm'>
-                          <option ". match($record['userrole'], "superadmin") .">superadmin</option>
-                          <option ". match($record['userrole'], "administrator") .">administrator</option>
-                          <option ". match($record['userrole'], "subscriber") .">subscriber</option>
-                          </select>
-                        </td>
+                        <form action='./change_userrole_action.php' method='post'>
+                          <th scope='row'>" . $record["id"]. "</th>
+                          <td>" . $record["email"] . "</td>
+                          <td>
+                            <select class='form-control form-control-sm'>
+                            <option ". match($record['userrole'], "superadmin") .">superadmin</option>
+                            <option ". match($record['userrole'], "administrator") .">administrator</option>
+                            <option ". match($record['userrole'], "subscriber") .">subscriber</option>
+                            </select>
+                          </td>
+                          <td>
+                            <input type='hidden' name='id' value='" . $record["id"] . "'>
+                            <button type='button' class='btn btn-outline-info btn-sm'>opslaan</button>
+                          </td>
+                        </form>
                       </tr>";
   }
 
@@ -61,6 +67,7 @@
             <th scope="col">id</th>
             <th scope="col">E-mail</th>
             <th scope="col">Gebruikersrol</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
