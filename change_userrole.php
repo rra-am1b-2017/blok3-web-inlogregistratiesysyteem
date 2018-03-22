@@ -1,3 +1,41 @@
+<?php
+  // Maak contact met de mysql-server
+  include("./connect_db.php");
+
+  // Selecteer alle users uit de tabel login
+  $sql = "SELECT * FROM `login`";
+
+  // Vuur de query af op de database
+  $result = mysqli_query($conn, $sql);
+
+  function match($userrole, $option) {
+    if ( $userrole == $option) {
+      return "selected";
+    }
+  }
+
+  $tableContent = "";
+  while ($record = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    $tableContent .= "<tr>
+                        <th scope='row'>" . $record["id"]. "</th>
+                        <td>" . $record["email"] . "</td>
+                        <td>
+                          <select class='form-control form-control-sm'>
+                          <option ". match($record['userrole'], "superadmin") .">superadmin</option>
+                          <option ". match($record['userrole'], "administrator") .">administrator</option>
+                          <option ". match($record['userrole'], "subscriber") .">subscriber</option>
+                          </select>
+                        </td>
+                      </tr>";
+  }
+
+  
+
+?>
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -16,16 +54,20 @@
   <div class="row">
     <div class="col-2"></div>
     <div class="col-8">
-    <!-- Table -->
-    
-    
-    
-    
-    
-    
-    
-    
-    </div>
+      <!-- Table -->
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Gebruikersrol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php echo $tableContent; ?>
+        </tbody>
+      </table>    
+    </div> <!-- col-8 div -->
     <div class="col-2"></div>  
-  </div>
-</div>
+  </div> <!-- row -->
+</div> <!-- container -->
