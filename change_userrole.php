@@ -21,7 +21,7 @@
                           <th scope='row'>" . $record["id"]. "</th>
                           <td>" . $record["email"] . "</td>
                           <td>
-                            <select class='form-control form-control-sm'>
+                            <select class='form-control form-control-sm' name='userrole'>
                             <option ". match($record['userrole'], "superadmin") .">superadmin</option>
                             <option ". match($record['userrole'], "administrator") .">administrator</option>
                             <option ". match($record['userrole'], "subscriber") .">subscriber</option>
@@ -29,7 +29,7 @@
                           </td>
                           <td>
                             <input type='hidden' name='id' value='" . $record["id"] . "'>
-                            <button type='button' class='btn btn-outline-info btn-sm'>opslaan</button>
+                            <button type='submit' class='btn btn-outline-info btn-sm'>opslaan</button>
                           </td>
                         </form>
                       </tr>";
